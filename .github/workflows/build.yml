@@ -28,7 +28,9 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: build
-      run: mvn clean package 
+      run: mvn clean package
+      
+    
       
     - name: List files
       run: ls
@@ -37,3 +39,6 @@ jobs:
       with:
           name: nukkit-1.0-SNAPSHOT
           path: ./target/nukkit-1.0-SNAPSHOT.jar
+          
+    - name: deploy
+      run: mvn deploy -DskipTests
